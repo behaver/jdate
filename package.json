@@ -1,0 +1,18 @@
+{
+  "name": "@behaver/jdate",
+  "version": "1.0.0",
+  "description": "About Julian day.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "julian"
+  ],
+  "author": "Sanwan Dong",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
