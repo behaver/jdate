@@ -6,9 +6,9 @@
 
 JDate 是一个相关天文算法之中 儒略时间 运算的组件库，它其中包含了 [JDate](/doc/JDate.md)、[JDateRepository](/doc/JDateRepository.md) 和 [CacheSpaceOnJDate](/doc/CacheSpaceOnJDate.md) 三个组件。此处只作组件库整体的简要说明，具体各组件的说明文档，请进入链接查看：
 
-[JDate](/doc/JDate.md) 儒略时间
-[JDateRepository](/doc/JDateRepository.md) 儒略时间扩展仓库
-[CacheSpaceOnJDate](/doc/CacheSpaceOnJDate.md) 依赖于儒略时间的缓存空间
+* [JDate](/doc/JDate.md) 儒略时间
+* [JDateRepository](/doc/JDateRepository.md) 儒略时间扩展仓库
+* [CacheSpaceOnJDate](/doc/CacheSpaceOnJDate.md) 依赖于儒略时间的缓存空间
 
 ## 安装
 
