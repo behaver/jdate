@@ -17,5 +17,9 @@
   },
   "dependencies": {
     "@behaver/calc-ut-delay": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behaver/jdate.git"
   }
 }
