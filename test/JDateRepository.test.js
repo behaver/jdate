@@ -46,6 +46,13 @@ describe("#JDateRepository", () => {
       let jdr = new JDateRepository(2551545);
       expect(jdr.JDECP(1)).equal(jdr.JDEC);
     })
+
+    it('The cache should be sync on jdate.', () => {
+      let jdr = new JDateRepository(2551545);
+      let a = jdr.JDECP(3);
+      jdr.JD = 2551245;
+      expect(a).not.equal(jdr.JDECP(3));
+    })
   })
 
   describe('#JDETP(exp = 1)', () => {
@@ -68,6 +75,13 @@ describe("#JDateRepository", () => {
     it('jdr.JDETP(1) should equal jdr.JDET', () => {
       let jdr = new JDateRepository(2551545);
       expect(jdr.JDETP(1)).equal(jdr.JDET);
+    })
+
+    it('The cache should be sync on jdate.', () => {
+      let jdr = new JDateRepository(2551545);
+      let a = jdr.JDETP(3);
+      jdr.JD = 2551245;
+      expect(a).not.equal(jdr.JDETP(3));
     })
   })
 })

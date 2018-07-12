@@ -11,7 +11,7 @@ const CacheSpaceOnJDate = require('./CacheSpaceOnJDate');
  * 此处引入该组件则是为了避免这种情况的发生。
  * 
  * @author 董 三碗 <qianxing@yeah.net>
- * @version 1.0.0
+ * @version 1.0.1
  * @license MIT
  */
 class JDateRepository extends JDate {
@@ -25,7 +25,7 @@ class JDateRepository extends JDate {
   constructor(d, dtype = 'jd') {
     super(d, dtype);
 
-    this.cache = new CacheSpaceOnJDate(this);
+    this.csojd = new CacheSpaceOnJDate(this);
   }
 
   /**
@@ -39,12 +39,12 @@ class JDateRepository extends JDate {
     if (typeof(exp) !== 'number') throw Error('The param exp has to be a number.');
     let key = exp === 1 ? 'jdec' : 'jdec' + exp;
     
-    if (!this.cache.has(key)) { // 缓存中未存储该访问值
+    if (!this.csojd.has(key)) { // 缓存中未存储该访问值
       let jdec = this.JDEC;
-      this.cache.set(key, Math.pow(jdec, exp));
+      this.csojd.set(key, Math.pow(jdec, exp));
     }
 
-    return this.cache.get(key);
+    return this.csojd.get(key);
   }
 
   /**
@@ -58,12 +58,12 @@ class JDateRepository extends JDate {
     if (typeof(exp) !== 'number') throw Error('The param exp has to be a number.');
     let key = exp === 1 ? 'jdet' : 'jdet' + exp;
 
-    if (!this.cache.has(key)) { // 缓存中未存储该访问值
+    if (!this.csojd.has(key)) { // 缓存中未存储该访问值
       let jdet = this.JDET;
-      this.cache[key] = Math.pow(jdet, exp);
+      this.csojd[key] = Math.pow(jdet, exp);
     }
 
-    return this.cache[key];
+    return this.csojd[key];
   }
 }
 
