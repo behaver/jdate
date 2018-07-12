@@ -51,7 +51,7 @@ console.log(cache.get('l'));
 
 ## 类图
 
-![JDate](/doc/img/JDate.png "JDate 组件库类图")
+![JDate](./doc/img/JDate.png "JDate 组件库类图")
 
 ## 许可证书
 
