@@ -120,6 +120,18 @@ let d = jdate.date;
 `set JDET(jdet)`
 设置 **儒略千年数** ，由 J2000 衍生
 
+`get JEpoch()`
+获取 **儒略纪元** ，由 J2000 衍生
+
+`set JEpoch(je)`
+设置 **儒略纪元** ，由 J2000 衍生
+
+`get BEpoch()`
+获取 **贝塞尔纪元**
+
+`set BEpoch(be)`
+设置 **贝塞尔纪元**
+
 ## 许可证书
 
 The MIT license.

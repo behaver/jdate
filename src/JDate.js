@@ -19,7 +19,7 @@ const calc_ut_delay = function(jd) {
  * JDate 对象用于处理儒略日数值
  * 
  * @author 董 三碗 <qianxing@yeah.net>
- * @version 2.0.0
+ * @version 2.1.4
  * @license MIT
  */
 class JDate {
@@ -31,11 +31,12 @@ class JDate {
    * @param  {String} dtype 日期值的类型
    */
   constructor(d, dtype = 'jd') {
+    if (typeof(dtype) !== 'string') throw Error('The param dtype should be a String.');
     this.cache = {};
     
     if (d === undefined) this.cache.date = new Date();
     else if (typeof(d) === 'number' || d.constructor === Date) {
-      switch (dtype) {
+      switch (dtype.toLowerCase()) {
         case 'date' :
           this.date = d;
           break;
@@ -53,6 +54,12 @@ class JDate {
           break;
         case 'jdet' :
           this.JDET = d;
+          break;
+        case 'bepoch':
+          this.BEpoch = d;
+          break;
+        case 'jepoch':
+          this.JEpoch = d;
           break;
 
         default :
@@ -303,6 +310,60 @@ class JDate {
     this.J2000 = jdet * 365250;
 
     this.cache.JDET = jdet;
+    return this;
+  }
+
+  /**
+   * 获取贝塞尔历元
+   *
+   * 根据 Lieske 提供的公式计算
+   * 
+   * @return {Number}       返回贝塞尔历元
+   */
+  get BEpoch() {
+    if (this.cache.BEpoch === undefined) {
+      this.cache.BEpoch = 1900.0 + (this.JD - 2415020.31352) / 365.242198781;
+    }
+
+    return this.cache.BEpoch;
+  }
+
+  /**
+   * 设置贝塞尔历元
+   *
+   * @param  {Number} be    贝塞尔历元
+   * @return {JDate}        返回 this 引用
+   */
+  set BEpoch(be) {
+    if (typeof(be) !== 'number') throw Error('Illegality Parameters.');
+    this.JD = (be - 1900.0) * 365.242198781 + 2415020.31352;
+    this.cache.BEpoch = be;
+    return this;
+  }
+
+  /**
+   * 获取儒略历元
+   *
+   * @return {Number}       返回儒略历元
+   */
+  get JEpoch() {
+    if (this.cache.JEpoch === undefined) {
+      this.cache.JEpoch = this.J2000 / 365.25 + 2000.0;
+    }
+
+    return this.cache.JEpoch;
+  }
+
+  /**
+   * 设置儒略历元
+   * 
+   * @param  {Number} je    儒略历元
+   * @return {JDate}        返回 this 引用
+   */
+  set JEpoch(je) {
+    if (typeof(je) !== 'number') throw Error('Illegality Parameters.');
+    this.J2000 = (je - 2000.0) * 365.25;
+    this.cache.JEpoch = je;
     return this;
   }
 }
