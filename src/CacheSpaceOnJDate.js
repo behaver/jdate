@@ -40,12 +40,15 @@ class CacheSpaceOnJDate {
   /**
    * 存入缓存变量
    * 
-   * @param {String} key 变量名称
-   * @param {String} val 变量值
+   * @param  {String}            key 变量名称
+   * @param  {String}            val 变量值
+   * @return {CacheSpaceOnJDate}     返回 this 引用
    */
   set(key, val) {
     this.sync();
     this.cache[key] = val;
+
+    return this;
   }
 
   /**
@@ -57,6 +60,19 @@ class CacheSpaceOnJDate {
   get(key) {
     this.sync();
     return this.cache[key];
+  }
+
+  /**
+   * 移除缓存变量
+   * 
+   * @param  {String}            key 变量名称
+   * @return {CacheSpaceOnJDate} 返回 this 引用
+   */
+  remove(key) {
+    this.sync();
+    this.cache[key] = undefined;
+
+    return this;
   }
 
   /**

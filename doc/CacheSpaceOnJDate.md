@@ -35,21 +35,31 @@ console.log(cache.get('l'));
 ## API
 
 `constructor(jdate)`
+
 构造函数，参数缓存空间所依赖的儒略时间组件，必须为 JDate 类的实例
 
 `on(jdate)`
+
 设定缓存空间依赖的 JDate 组件
 
 `set(key, val)`
+
 存入缓存变量
 
 `get(key)`
+
 读取缓存变量
 
+`remove(key)`
+
+清除缓存变量
+
 `has(key)`
+
 判断缓存量是否存在
 
 `clear()`
+
 清空全部缓存空间
 
 ## 许可证书

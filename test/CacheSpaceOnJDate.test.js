@@ -50,6 +50,16 @@ describe('#CacheSpaceOnJDate', () => {
       jdr.JD = 2446892;
       expect(cache.get('abc')).not.equal(12345);
     })
+  });
+
+  describe('#remove(key)', () => {
+    it('use it then the cache item should be remove.', () => {
+      let cache = new CacheSpaceOnJDate(new JDateRepository(2446896));
+      cache.set('abc', 12345);
+      cache.remove('abc');
+
+      expect(cache.has('abc')).to.equal(false);
+    });
   })
 
   describe('#has(key)', () => {
