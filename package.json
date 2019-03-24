@@ -12,14 +12,17 @@
   "author": "Sanwan Dong",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "@behaver/calc-ut-delay": "^1.0.0"
+    "@behaver/calc-ut-delay": "^1.0.3"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/behaver/jdate.git"
-  }
+  },
+  "files": [
+    "./src"
+  ]
 }
