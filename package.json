@@ -23,6 +23,6 @@
     "url": "git+https://github.com/behaver/jdate.git"
   },
   "files": [
-    "./src"
+    "src"
   ]
 }
